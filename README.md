@@ -2,7 +2,7 @@
 
 **Important:** This repository is a work-in-progress. It is currently just the base image created from the template with a slightly edited README. None of the information from the template below about running tests currently works.
 
--
+-----
 
 The Docker image to automatically run tests on Swiftsolutions submitted to [Exercism].
 
