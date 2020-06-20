@@ -1,11 +1,11 @@
 //
-//  File.swift
+//  Parser.swift
 //
 //
 //  Created by William Neumann on 5/2/20.
 //
 
-// TODO: - Clean up this messy-ass file
+// TODO: - Clean up this messy file
 
 // MARK: - Base definitions
 public struct ErrStr: Error, CustomStringConvertible, ExpressibleByStringLiteral {
