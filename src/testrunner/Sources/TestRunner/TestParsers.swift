@@ -40,7 +40,7 @@ let caseParser: Parser<(String, [String], Either<String, Void>)> = caseStartPars
   let caseFinishParser = Parser.discard(
     Parser.literal("Test Case \(caseNames.open)\(caseNames.name)\(caseNames.close) "),
     keep: Parser.keep(
-      Parser.choose(Parser.string("passed"), Parser.string("failed")),
+      Parser.choice([Parser.string("passed"), Parser.string("failed"), Parser.string("skipped")]),
       discard: drop(while: { $0 != "\n" })))
   let caseEndParser = Parser.either(
     caseFinishParser, Parser.discard(Parser.star(Parser.whitespace), keep: Parser.end))

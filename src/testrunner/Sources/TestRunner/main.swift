@@ -16,6 +16,9 @@ struct RunnerOptions: ParsableArguments {
 
   @Option()
   var buildDirectory: String
+
+  @Flag()
+  var showSkipped: Bool
 }
 
 // macOS test options
@@ -111,7 +114,7 @@ do {
   #else
     jenc.outputFormatting.update(with: .sortedKeys)
   #endif
-  let jData = try jenc.encode(testResult)
+  let jData = try jenc.encode(options.showSkipped ? testResult : testResult.dropSkips)
 
   let outputFile = URL(fileURLWithPath: options.outputDirectory, isDirectory: true)
     .appendingPathComponent("results.json", isDirectory: false)

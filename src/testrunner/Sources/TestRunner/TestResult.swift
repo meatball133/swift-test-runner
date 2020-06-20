@@ -15,7 +15,7 @@ let startTimeFormatter: DateFormatter = {
 }()
 
 enum TestStatus: String, Codable {
-  case pass, fail, error
+  case pass, fail, skipped, error
 }
 
 struct TestCase: CustomStringConvertible, Encodable {
@@ -38,6 +38,9 @@ struct TestCase: CustomStringConvertible, Encodable {
       self.status = .pass
     case .left("failed"):
       self.status = .fail
+      self.message = messages.popLast()
+    case .left("skipped"):
+      self.status = .skipped
       self.message = messages.popLast()
     case .left(let stat): fatalError("impossible parsing of status, got: \(stat)")
     }
@@ -91,6 +94,14 @@ struct TestResult: CustomStringConvertible, Encodable {
   let message: String?
   let tests: [TestCase]
 
+  init(startTime: Date, status: TestStatus, testSuites: [PackageSuite], message: String?, tests: [TestCase]) {
+    self.startTime = startTime
+    self.status = status
+    self.testSuites = testSuites
+    self.message = message
+    self.tests = tests
+  }
+
   init(startTime: Date, status: TestStatus, testSuites: [PackageSuite], message: String?) {
     self.startTime = startTime
     self.status = status
@@ -102,6 +113,10 @@ struct TestResult: CustomStringConvertible, Encodable {
       }
     }
 
+  }
+
+  var dropSkips: TestResult {
+    TestResult(startTime: self.startTime, status: self.status, testSuites: self.testSuites, message: self.message, tests: self.tests.filter { $0.status != .skipped })
   }
 
   var description: String {
