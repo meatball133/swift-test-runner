@@ -42,11 +42,11 @@ struct RunnerOptions: ParsableArguments {
 //         ]
 //     )
 let options = RunnerOptions.parseOrExit()
-print(options)
+// print(options)
 
 let tempDir = URL(fileURLWithPath: options.buildDirectory, isDirectory: true)
   .appendingPathComponent(UUID().uuidString, isDirectory: true)
-print("tempDir: \(tempDir.absoluteString)")
+// print("tempDir: \(tempDir.absoluteString)")
 
 guard
   let _ = try? FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)

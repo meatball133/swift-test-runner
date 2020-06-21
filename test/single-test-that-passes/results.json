@@ -1,0 +1,9 @@
+{
+  "status" : "pass",
+  "tests" : [
+    {
+      "name" : "SingleThatPassesTests.testAdd",
+      "status" : "pass"
+    }
+  ]
+}
