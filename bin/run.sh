@@ -6,9 +6,8 @@ INPUT_DIR="$2"
 OUTPUT_DIR="$3"
 BASEDIR=$(dirname "$0")
 
-
 echo "$SLUG: testing..."
-"${BASEDIR}"/TestRunner --slug "$1" --solution-directory "$2" --output-directory "$3" --swift-location $(which swift) --build-directory "/tmp/"
+RUNALL=true "${BASEDIR}"/TestRunner --slug "$1" --solution-directory "$2" --output-directory "$3" --swift-location $(which swift) --build-directory "/tmp/"
 
 #echo "$SLUG: processing test output in $INPUT_DIR..."
 ## PLACEHOLDER - OPTIONAL: Your language may support outputting results
