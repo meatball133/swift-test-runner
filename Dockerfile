@@ -9,10 +9,10 @@ RUN swift build --configuration release
 
 FROM swift:latest
 WORKDIR /opt/test-runner/
+COPY bin/ bin/
 COPY --from=builder /.build/release/TestRunner bin/
-COPY bin/run.sh bin/
 
 ENV NAME RUNALL
 
-# ENTRYPOINT ["/opt/test-runner/bin/run.sh"]
+ENTRYPOINT ["./bin/run.sh"]
 # ENTRYPOINT ["bin/TestRunner", "--help"]
