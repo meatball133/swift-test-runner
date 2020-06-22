@@ -1,11 +1,22 @@
 #! /bin/sh
 set -e
 
-output_dir="${1:-test/output/}"
+test_root="${1:-/solution}"
+output_dir="${2:-/output/}"
 
-for testdir in test/*; do
+# echo "Output:"
+# echo "${output_dir}"
+# echo "Test root:"
+# echo "${test_root}"
+
+for testdir in "${test_root}"/*; do
     testname="$(basename $testdir)"
+    # echo "testdir"
+    # echo "${testdir}"
+    # echo "testname"
+    # echo "${testname}"
+    # echo "-----------"
     if [ "$testname" != output ] && [ -f "${testdir}/results.json" ]; then
-        bin/run.sh "$testname" "$testdir" "$output_dir"
+        bin/run.sh "$testname" "$test_root" "$output_dir"
     fi
 done

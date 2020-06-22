@@ -1,0 +1,19 @@
+{
+  "status" : "fail",
+  "tests" : [
+    {
+      "message" : "\/solution\/multiple-tests-multiple-fails\/Tests\/MultipleMultipleFailsTests\/MultipleMultipleFailsTests.swift:7: error: MultipleMultipleFailsTests.testAdd : XCTAssertEqual failed: (\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
+      "name" : "MultipleMultipleFailsTests.testAdd",
+      "status" : "fail"
+    },
+    {
+      "message" : "\/solution\/multiple-tests-multiple-fails\/Tests\/MultipleMultipleFailsTests\/MultipleMultipleFailsTests.swift:11: error: MultipleMultipleFailsTests.testSub : XCTAssertEqual failed: (\"5\") is not equal to (\"-1\") - ",
+      "name" : "MultipleMultipleFailsTests.testSub",
+      "status" : "fail"
+    },
+    {
+      "name" : "MultipleMultipleFailsTests.testMul",
+      "status" : "pass"
+    }
+  ]
+}
