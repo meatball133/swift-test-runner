@@ -1,0 +1,37 @@
+{
+  "status" : "fail",
+  "tests" : [
+    {
+      "message" : "/solution/Tests/MultipleSingleFailTests/MultipleSingleFailTests.swift:9: error: MultipleSingleFailTests.testAdd : XCTAssertEqual failed: (\"0\") is not equal to (\"5\") - 2+3 should equal 5",
+      "name" : "MultipleSingleFailTests.testAdd",
+      "output" : "yabba…",
+      "status" : "fail"
+    },
+    {
+      "name" : "MultipleSingleFailTests.testSub",
+      "output" : "dabba…",
+      "status" : "pass"
+    },
+    {
+      "name" : "MultipleSingleFailTests.testMul",
+      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut I’ll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, that’s\ncertain; wise, or I’ll none; virtuous, or I’ll never cheapen\nher; fair, or I’ll ever look on h…",
+      "status" : "pass"
+    },
+    {
+      "message" : "/solution/Tests/MultipleSingleFailTests/MultipleSingleFailTests.swift:34: error: SecondSuite.testAdd : XCTAssertEqual failed: (\"0\") is not equal to (\"25\") - 12+13 should equal 25",
+      "name" : "SecondSuite.testAdd",
+      "output" : "yabba…",
+      "status" : "fail"
+    },
+    {
+      "name" : "SecondSuite.testSub",
+      "output" : "dabba…",
+      "status" : "pass"
+    },
+    {
+      "name" : "SecondSuite.testMul",
+      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut I’ll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, that’s\ncertain; wise, or I’ll none; virtuous, or I’ll never cheapen\nher; fair, or I’ll ever look on h…",
+      "status" : "pass"
+    }
+  ]
+}

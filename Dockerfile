@@ -15,4 +15,3 @@ COPY --from=builder /.build/release/TestRunner bin/
 ENV NAME RUNALL
 
 ENTRYPOINT ["./bin/run.sh"]
-# ENTRYPOINT ["bin/TestRunner", "--help"]

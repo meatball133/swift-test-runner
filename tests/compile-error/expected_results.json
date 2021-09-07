@@ -1,0 +1,7 @@
+{
+  "message" : "/solution/Sources/CompileError/CompileError.swift:2:12: error: unexpected non-void return value in void function\n  return x + y\n           ^\n/solution/Sources/CompileError/CompileError.swift:2:12: note: did you mean to add a return type?\n  return x + y\n           ^\nerror: fatalError\n",
+  "status" : "error",
+  "tests" : [
+
+  ]
+}
