@@ -7,7 +7,8 @@ The Docker image to automatically run tests on Swift solutions submitted to [Exe
 To run the tests of an arbitrary exercise, do the following:
 
 1. Open a terminal in the project's root
-2. Run `./bin/run.sh <exercise-slug> <solution-dir> <output-dir>`
+2. Run `./bin/build-test-runner.sh`
+3. Run `./bin/run.sh <exercise-slug> <solution-dir> <output-dir>`
 
 Once the test runner has finished, its results will be written to `<output-dir>/results.json`.
 
