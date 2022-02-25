@@ -15,5 +15,6 @@
       "name" : "MultipleMultipleFailsTests.testMul",
       "status" : "pass"
     }
-  ]
+  ],
+  "version" : 2
 }

@@ -101,6 +101,7 @@ struct PackageSuite: CustomStringConvertible {
 // MARK: - TestResult
 
 struct TestResult: CustomStringConvertible, Encodable {
+    let version = 2
     let startTime: Date
     let status: TestStatus
     let testSuites: [PackageSuite]
@@ -137,6 +138,7 @@ struct TestResult: CustomStringConvertible, Encodable {
     }
 
     enum CodingKeys: String, CodingKey {
+        case version
         case status
         case message
         case tests

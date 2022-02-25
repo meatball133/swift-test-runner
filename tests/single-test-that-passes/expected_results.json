@@ -5,5 +5,6 @@
       "name" : "SingleThatPassesTests.testAdd",
       "status" : "pass"
     }
-  ]
+  ],
+  "version" : 2
 }

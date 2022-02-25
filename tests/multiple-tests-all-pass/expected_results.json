@@ -25,5 +25,6 @@
       "name" : "SecondSuite.testMul",
       "status" : "pass"
     }
-  ]
+  ],
+  "version" : 2
 }

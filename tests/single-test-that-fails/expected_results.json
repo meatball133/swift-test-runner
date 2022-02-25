@@ -6,5 +6,6 @@
       "name" : "SingleThatFailsTests.testAdd",
       "status" : "fail"
     }
-  ]
+  ],
+  "version" : 2
 }

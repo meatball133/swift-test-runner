@@ -18,5 +18,6 @@
       "name" : "MultipleWithExceptionTests.testThrow",
       "status" : "fail"
     }
-  ]
+  ],
+  "version" : 2
 }
