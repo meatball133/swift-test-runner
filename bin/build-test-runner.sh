@@ -15,7 +15,7 @@ RELEASE_DIR=".build/release"
 
 # Build the test runner file
 cd "$BUILD_DIR"
-swift build --configuration release
+swift build  --configuration release
 cd -
 
 # Copy generated file to bin dir
