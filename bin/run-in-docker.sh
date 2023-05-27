@@ -31,7 +31,7 @@ OUTPUT_DIR="${3%/}"
 mkdir -p "${OUTPUT_DIR}"
 
 # build docker image
-docker build --rm -t exercism/swift-test-runner .
+docker build --rm  --platform linux/x86_64 -t exercism/swift-test-runner .
 
 # run image passing the arguments
 # TODO: support --read-only flag
