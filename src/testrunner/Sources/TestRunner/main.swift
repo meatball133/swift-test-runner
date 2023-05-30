@@ -201,6 +201,33 @@ class TestRunner{
                 xmlTests[testIdx].output = startString
             }
         }
+        if x.status != "error"{
+            let type2 = something.components(separatedBy: "\n")[1...]
+            var start = 0
+            var startString = ""
+            for (idx3, z) in type2.enumerated(){
+                let indexz = z.index(z.startIndex, offsetBy: 0)
+                if z.count > 0{
+                    if start == 0 && z.contains(x.name) && z[indexz] != "["{
+                        if let range = z.range(of: "started at", options: .backwards) {
+                            if let range1 = z.range(of: ".", options: [], range: (range.upperBound..<z.endIndex)){
+                                let newIndex = z.index(range1.upperBound, offsetBy: 3)
+                                startString = String(z[newIndex..<z.endIndex])
+                            }
+                        }
+                        start = idx3 + 2
+                    } else if z.contains(x.name) && z[indexz] != "[" {
+                        if start < idx3{
+                            xml_tests[idx].output = startString + "\n" + type2[start...idx3].joined(separator: "\n")
+                        }
+                        break
+                    }   
+                }
+            }
+            if startString != "" && xml_tests[idx].output == nil{
+                xml_tests[idx].output = startString
+            }
+        }
     }
     }
 
