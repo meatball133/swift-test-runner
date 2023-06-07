@@ -8,6 +8,7 @@ RUN swift --version
 RUN swift build --configuration release
 
 FROM swift:5.8-bionic
+RUN apk add --no-cache bash jq coreutils
 WORKDIR /opt/test-runner/
 COPY bin/ bin/
 COPY --from=builder /.build/release/TestRunner bin/
