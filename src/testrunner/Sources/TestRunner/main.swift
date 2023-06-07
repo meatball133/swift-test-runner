@@ -244,11 +244,9 @@ class TestRunner{
             print("Error can't encode json: \(error)")
             return
         }
-        print(data)
         let data_json = String(data: data, encoding: .utf8)!
         do {
             try data_json.write(toFile: result_path, atomically: true, encoding: String.Encoding.utf8)
-            print(data_json, result_path)
         }
         catch {  
             print("Error result_path: \(error)")
