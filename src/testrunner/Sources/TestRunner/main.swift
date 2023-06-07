@@ -21,12 +21,12 @@ struct testCases: Codable {
 
 
 class TestRunner{
-    var xml_tests: [testCases] = []
+    var xmlTests: [testCases] = []
 
     class getTestName: SyntaxVisitor  {
         var tests: [testCases] = []
-        var task_id = 0
-        var in_class = 0
+        var taskId = 0
+        var inClass = 0
         let charactersToRemove = CharacterSet(charactersIn: "\n{} ")
 
         override func visit(_ node: FunctionDeclSyntax) -> SyntaxVisitorContinueKind {
@@ -35,25 +35,25 @@ class TestRunner{
                 let name: String = String(describing: node.identifier)
                 var body: String = String(describing: bodyCheck!).trimmingCharacters(in: charactersToRemove)
                 var bodyList = body.components(separatedBy: "\n")
-                for (idx, x) in bodyList.enumerated(){
-                    bodyList[idx] = x.trimmingCharacters(in: CharacterSet.whitespaces)
+                for (rowIdx, row) in bodyList.enumerated(){
+                    bodyList[rowIdx] = row.trimmingCharacters(in: CharacterSet.whitespaces)
                 }
                 body = bodyList.joined(separator: "\n")
-                tests.append(testCases(name: name, test_code: body, task_id: task_id))
+                tests.append(testCases(name: name, test_code: body, task_id: taskId))
             }
             return SyntaxVisitorContinueKind.visitChildren
         }
 
         override func visit(_ node: ClassDeclSyntax) -> SyntaxVisitorContinueKind {
-            if in_class == 0{
-                task_id += 1
+            if inClass == 0{
+                taskId += 1
             } 
-            in_class += 1  
+            inClass += 1  
             return SyntaxVisitorContinueKind.visitChildren
         }
 
         override func visitPost(_ node: ClassDeclSyntax) {
-            in_class -= 1
+            inClass -= 1
         }
     }
 
@@ -65,7 +65,7 @@ class TestRunner{
             self.tests = tests
         }
         // Called when the parser encounters the start of an element
-        func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName _: String?, attributes attributeDict: [String : String] = [:]) {
             if elementName == "failure"{
                 tests[counter].status = "fail"
             }
@@ -77,13 +77,13 @@ class TestRunner{
     }
 
 
-    func run(file_path : String, xml_path : String, context_path : String, result_path : String){
+    func run(filePath : String, xmlPath : String, contextPath : String, resultPath : String){
     var swiftSource = ""
     do {
-        swiftSource = try NSString(contentsOfFile: file_path,
+        swiftSource = try NSString(contentsOfFile: filePath,
             encoding: String.Encoding.ascii.rawValue) as String
     }catch {
-            print("Error file_path: \(error)")
+            print("Error filePath: \(error)")
     }
     let rootNode: SourceFileSyntax = try! Parser.parse(source: swiftSource)
     var process = getTestName(viewMode: SyntaxTreeViewMode.all)
@@ -91,11 +91,11 @@ class TestRunner{
     let tests = process.tests
     var result = ""
     do {
-        result = try NSString(contentsOfFile: xml_path,
+        result = try NSString(contentsOfFile: xmlPath,
             encoding: String.Encoding.ascii.rawValue) as String
     }catch {
-            print("Error xml_path: \(error)")
-            writeJson(result_path: result_path, error: erorrContext(context: context_path))
+            print("Error xmlPath: \(error)")
+            writeJson(resultPath: resultPath, error: errorContext(context: contextPath))
             return
     }
 
@@ -104,40 +104,40 @@ class TestRunner{
     let delegate  = MyXMLParserDelegate(tests: tests)
     xmlParser.delegate = delegate 
     xmlParser.parse()
-    xml_tests = delegate.tests
+    xmlTests = delegate.tests
 
     var context = ""
     do {
-        context = try NSString(contentsOfFile: context_path,
+        context = try NSString(contentsOfFile: contextPath,
             encoding: String.Encoding.ascii.rawValue) as String
     }catch {
-            print("Error context_path: \(error)")
+            print("Error contextPath: \(error)")
         }
     addContext(context: context)
 
-    writeJson(result_path: result_path)
+    writeJson(resultPath: resultPath)
     }
 
     func addContext(context: String) {
-        for (idx, x) in xml_tests.enumerated(){
-            if x.status == "fail"{
-                let type = context.components(separatedBy: "\n")[1...]
+        for (testIdx, testCase) in xmlTests.enumerated(){
+            if testCase.status == "fail"{
+                let contextLines = context.components(separatedBy: "\n")[1...]
                 var found = false
-                for (idx2, y) in type.enumerated(){
-                    if let range2 = y.range(of: "\(x.name) : XCTAssertEqual failed: ") {
+                for row in contextLines{
+                    if let startRange = row.range(of: "\(testCase.name) : XCTAssertEqual failed: ") {
                         found = true
-                        if let range1 = y.range(of: "Test Case ", options: [], range: (range2.upperBound..<y.endIndex)){
-                            let sum = y.distance(from: y.startIndex, to: range2.upperBound)
-                            let lowerBound1 = String.Index(encodedOffset: sum + y.distance(from: range2.upperBound, to: range1.lowerBound))
+                        if let endRange = row.range(of: "Test Case ", options: [], range: (startRange.upperBound..<row.endIndex)){
+                            let sum = row.distance(from: row.startIndex, to: startRange.upperBound)
+                            let lowerBound1 = String.Index(encodedOffset: sum + row.distance(from: startRange.upperBound, to: endRange.lowerBound))
                             let upperBound1 = String.Index(encodedOffset: sum)
-                            let newSubstring = y[upperBound1..<lowerBound1]
-                            xml_tests[idx].message = String(newSubstring)
+                            let newSubstring = row[upperBound1..<lowerBound1]
+                            xmlTests[testIdx].message = String(newSubstring)
                             break
                         }else{
-                            let sum = y.distance(from: y.startIndex, to: range2.upperBound)
+                            let sum = row.distance(from: row.startIndex, to: startRange.upperBound)
                             let upperBound1 = String.Index(encodedOffset: sum)
-                            let newSubstring = y[upperBound1..<y.endIndex]
-                            xml_tests[idx].message = String(newSubstring)
+                            let newSubstring = row[upperBound1..<row.endIndex]
+                            xmlTests[testIdx].message = String(newSubstring)
                             break
                         }
                     }
@@ -145,21 +145,21 @@ class TestRunner{
                 if !found {
                     var current = ""
                     var index = 1
-                    for (idx2, y) in type.enumerated(){
-                        let indexy = y.index(y.startIndex, offsetBy: 0)
-                        if y.count > 0{
-                            if y.contains(x.name) && y[indexy] != "[" {
-                                current = x.name
-                                xml_tests[idx].status = "error"
-                                if let range3 = y.range(of: "started at", options: .backwards) {
-                                    if let range2 = y.range(of: ".", options: [], range: (range3.upperBound..<y.endIndex)){
-                                        if let range1 = y.range(of: "Test Case ", options: [], range: (range2.upperBound..<y.endIndex)){
-                                            let newIndex = y.index(range2.upperBound, offsetBy: 3)
-                                            let sum = y.distance(from: y.startIndex, to: newIndex)
-                                            let lowerBound1 = String.Index(encodedOffset: sum + y.distance(from: newIndex, to: range1.lowerBound))
+                    for row in contextLines{
+                        let startIndex = row.index(row.startIndex, offsetBy: 0)
+                        if row.count > 0{
+                            if row.contains(testCase.name) && row[startIndex] != "[" {
+                                current = testCase.name
+                                xmlTests[testIdx].status = "error"
+                                if let startRange = row.range(of: "started at", options: .backwards) {
+                                    if let newStartRange = row.range(of: ".", options: [], range: (startRange.upperBound..<row.endIndex)){
+                                        if let endRange = row.range(of: "Test Case ", options: [], range: (newStartRange.upperBound..<row.endIndex)){
+                                            let newIndex = row.index(newStartRange.upperBound, offsetBy: 3)
+                                            let sum = row.distance(from: row.startIndex, to: newIndex)
+                                            let lowerBound1 = String.Index(encodedOffset: sum + row.distance(from: newIndex, to: endRange.lowerBound))
                                             let upperBound1 = String.Index(encodedOffset: sum)
-                                            let newSubstring = y[upperBound1..<lowerBound1]
-                                            xml_tests[idx].message = String(newSubstring)
+                                            let newSubstring = row[upperBound1..<lowerBound1]
+                                            xmlTests[testIdx].message = String(newSubstring)
                                             break
                                         }
                                     }
@@ -169,45 +169,45 @@ class TestRunner{
                 }
             }
         }
-        if x.status != "error"{
-            let type2 = context.components(separatedBy: "\n")[1...]
+        if testCase.status != "error"{
+            let contextLinesOutput = context.components(separatedBy: "\n")[1...]
             var start = 0
             var startString = ""
-            for (idx3, z) in type2.enumerated(){
-                let indexz = z.index(z.startIndex, offsetBy: 0)
-                if z.count > 0{
-                    if start == 0 && z.contains(x.name + "'") && z[indexz] != "["{
-                        if let range = z.range(of: "started at", options: .backwards) {
-                            if let range1 = z.range(of: ".", options: [], range: (range.upperBound..<z.endIndex)){
-                                let newIndex = z.index(range1.upperBound, offsetBy: 3)
-                                startString = String(z[newIndex..<z.endIndex])
-                                var checkString_1 = ""
+            for (rowIdx, row) in contextLinesOutput.enumerated(){
+                let startIndex = row.index(row.startIndex, offsetBy: 0)
+                if row.count > 0{
+                    if start == 0 && row.contains(testCase.name + "'") && row[startIndex] != "["{
+                        if let startRange = row.range(of: "started at", options: .backwards) {
+                            if let newStartRange = row.range(of: ".", options: [], range: (startRange.upperBound..<row.endIndex)){
+                                let newIndex = row.index(newStartRange.upperBound, offsetBy: 3)
+                                startString = String(row[newIndex..<row.endIndex])
+                                var checkString = ""
                                 if startString.count >= 9{
-                                    checkString_1 = startString.substring(with: NSRange(location: 0, length: 9))
+                                    checkString = startString.substring(with: NSRange(location: 0, length: 9))
                                 }
-                                if checkString_1 == "Test Case" || startString.contains(x.name + "'"){
+                                if checkString == "Test Case" || startString.contains(testCase.name + "'"){
                                     startString = ""
                                     break
                                 }
                             }
                         }
-                        start = idx3 + 2
-                    } else if z.contains(x.name + "'") && z[indexz] != "[" {
-                        if start < idx3{
-                            xml_tests[idx].output = startString + "\n" + type2[start...idx3].joined(separator: "\n")
+                        start = rowIdx + 2
+                    } else if row.contains(testCase.name + "'") && row[startIndex] != "[" {
+                        if start < rowIdx{
+                            xmlTests[testIdx].output = startString + "\n" + contextLinesOutput[start...rowIdx].joined(separator: "\n")
                         }
                         break
                     }   
                 }
             }
-            if startString != "" && xml_tests[idx].output == nil{
-                xml_tests[idx].output = startString
+            if startString != "" && xmlTests[testIdx].output == nil{
+                xmlTests[testIdx].output = startString
             }
         }
     }
     }
 
-    func erorrContext(context : String) -> String{
+    func errorContext(context : String) -> String{
         var something = ""
         do {
             // Use contentsOfFile overload.
@@ -222,9 +222,9 @@ class TestRunner{
         }
         let message = something.components(separatedBy: "\n")[1...]
         var start = 0
-        for (idx, x) in message.enumerated(){
-            if x.contains("CompileError.swift:"){
-                start = idx + 1
+        for (rowIdx, row) in message.enumerated(){
+            if row.contains("CompileError.swift:"){
+                start = rowIdx + 1
                 break
             }
         }
@@ -234,18 +234,18 @@ class TestRunner{
         return message.joined(separator: "\n")
     }
 
-    func writeJson( result_path: String, error: String = ""){
+    func writeJson( resultPath: String, error: String = ""){
         let encoder = JSONEncoder()
         encoder.outputFormatting.update(with: .prettyPrinted)
         encoder.outputFormatting.update(with: .sortedKeys)
         var json : testFile
-        if xml_tests.contains {$0.status == "fail" || $0.status == "error" } {
-            json = testFile(status: "fail", tests: xml_tests)
+        if xmlTests.contains {$0.status == "fail" || $0.status == "error" } {
+            json = testFile(status: "fail", tests: xmlTests)
         }
         else if error != ""{
             json = testFile(status: "error", message: error)
         }else{
-            json = testFile(tests: xml_tests)
+            json = testFile(tests: xmlTests)
         }
         var data: Data
         do {
@@ -255,15 +255,15 @@ class TestRunner{
             print("Error can't encode json: \(error)")
             return
         }
-        let data_json = String(data: data, encoding: .utf8)!
+        let dataJson = String(data: data, encoding: .utf8)!
         do {
-            try data_json.write(toFile: result_path, atomically: true, encoding: String.Encoding.utf8)
+            try dataJson.write(toFile: resultPath, atomically: true, encoding: String.Encoding.utf8)
         }
         catch {  
-            print("Error result_path: \(error)")
+            print("Error resultPath: \(error)")
             return
         }
     }
 }
 
-TestRunner().run(file_path: CommandLine.arguments[1], xml_path: CommandLine.arguments[2],context_path:  CommandLine.arguments[3], result_path: CommandLine.arguments[4])
+TestRunner().run(filePath: CommandLine.arguments[1], xmlPath: CommandLine.arguments[2], contextPath:  CommandLine.arguments[3], resultPath: CommandLine.arguments[4])
