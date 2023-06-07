@@ -20,7 +20,7 @@
         "test_code" : "XCTAssertEqual(mul(3, 2), 6)"
       },
       {
-        "message" : "Test Suite 'Selected tests' started at 2023-06-07 15:30:14.363Test Suite 'MultipleWithExceptionTests' started at 2023-06-07 15:30:14.364Test Case 'MultipleWithExceptionTests.testThrow' started at 2023-06-07 15:30:14.364/solution/Tests/MultipleWithExceptionTests/MultipleWithExceptionTests.swift:19: error: MultipleWithExceptionTests.testThrow : XCTAssertEqual threw error \"testError(\"Oh noes! Div by zeroes!!!\")\" -Test Case 'MultipleWithExceptionTests.testThrow' failed (0.101 seconds)Test Suite 'MultipleWithExceptionTests' failed at 2023-06-07 15:30:14.465",
+        "message" : "/solution/Tests/MultipleWithExceptionTests/MultipleWithExceptionTests.swift:19: error: MultipleWithExceptionTests.testThrow : XCTAssertEqual threw error \"testError(\"Oh noes! Div by zeroes!!!\")\" -",
         "name" : "testThrow",
         "status" : "error",
         "task_id" : 1,
@@ -28,4 +28,4 @@
       }
     ],
     "version" : 3
-  }
+}

@@ -151,8 +151,19 @@ class TestRunner{
                             if y.contains(x.name) && y[indexy] != "[" {
                                 current = x.name
                                 xml_tests[idx].status = "error"
-                                xml_tests[idx].message = y
-                                break
+                                if let range3 = y.range(of: "started at", options: .backwards) {
+                                    if let range2 = y.range(of: ".", options: [], range: (range3.upperBound..<y.endIndex)){
+                                        if let range1 = y.range(of: "Test Case ", options: [], range: (range2.upperBound..<y.endIndex)){
+                                            let newIndex = y.index(range2.upperBound, offsetBy: 3)
+                                            let sum = y.distance(from: y.startIndex, to: newIndex)
+                                            let lowerBound1 = String.Index(encodedOffset: sum + y.distance(from: newIndex, to: range1.lowerBound))
+                                            let upperBound1 = String.Index(encodedOffset: sum)
+                                            let newSubstring = y[upperBound1..<lowerBound1]
+                                            xml_tests[idx].message = String(newSubstring)
+                                            break
+                                        }
+                                    }
+                                }
                         }   
                     }
                 }

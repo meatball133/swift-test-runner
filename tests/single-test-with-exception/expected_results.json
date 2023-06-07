@@ -2,7 +2,7 @@
   "status" : "fail",
   "tests" : [
     {
-      "message" : "Test Suite 'Selected tests' started at 2023-06-07 15:30:22.803Test Suite 'SingleWithExceptionTests' started at 2023-06-07 15:30:22.804Test Case 'SingleWithExceptionTests.testAdd' started at 2023-06-07 15:30:22.804/solution/Tests/SingleWithExceptionTests/SingleWithExceptionTests.swift:7: error: SingleWithExceptionTests.testAdd : XCTAssertEqual threw error \"testError(\"Kaboomtown!\")\" - 2+3 should equal 5Test Case 'SingleWithExceptionTests.testAdd' failed (0.001 seconds)Test Suite 'SingleWithExceptionTests' failed at 2023-06-07 15:30:22.805Executed 1 test, with 1 failure (1 unexpected) in 0.001 (0.001) secondsTest Suite 'Selected tests' failed at 2023-06-07 15:30:22.805Executed 1 test, with 1 failure (1 unexpected) in 0.001 (0.001) seconds",
+      "message" : "/solution/Tests/SingleWithExceptionTests/SingleWithExceptionTests.swift:7: error: SingleWithExceptionTests.testAdd : XCTAssertEqual threw error \"testError(\"Kaboomtown!\")\" - 2+3 should equal 5",
       "name" : "testAdd",
       "status" : "error",
       "task_id" : 1,
