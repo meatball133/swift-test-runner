@@ -8,11 +8,10 @@ RUN swift --version
 RUN swift build --configuration release
 
 FROM swift:5.8-bionic
+RUN apt-get update && apt-get install -y jq
 WORKDIR /opt/test-runner/
 COPY bin/ bin/
 COPY --from=builder /.build/release/TestRunner bin/
-
-RUN apk add --no-cache bash jq coreutils
 
 ENV NAME RUNALL
 
