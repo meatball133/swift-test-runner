@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -17,8 +17,5 @@ let package = Package(
             .product(name: "SwiftSyntax", package: "swift-syntax"),
             .product(name: "SwiftParser", package: "swift-syntax"),
         ]),
-        /*.testTarget(
-            name: "TestRunnerTests",
-            dependencies: ["TestRunner"]),*/
     ]
 )
