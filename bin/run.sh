@@ -31,11 +31,7 @@ results_file="${OUTPUT_DIR}/results.json"
 BASEDIR=$(dirname "$0")
 
 touch "${results_file}"
-start=`date +%s`
+
 swift test --package-path "${INPUT_DIR}" -v --parallel --xunit-output "${junit_file}" &> "${capture_file}"
-echo "hi"
 
 ./bin/TestRunner "${spec_file}" "${junit_file}" "${capture_file}" "${results_file}"
-end=`date +%s`
-runtime=$((end-start))
-echo "${runtime}"
