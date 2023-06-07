@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/MultipleWithException/MultipleWithException.swift"
+    ],
+    "test": [
+      "Tests/MultipleWithExceptionTests/MultipleWithExceptionTests.swift"
+    ]
+  }
+}

@@ -2,37 +2,49 @@
   "status" : "fail",
   "tests" : [
     {
-      "message" : "/solution/Tests/MultipleSingleFailTests/MultipleSingleFailTests.swift:9: error: MultipleSingleFailTests.testAdd : XCTAssertEqual failed: (\"0\") is not equal to (\"5\") - 2+3 should equal 5",
-      "name" : "MultipleSingleFailTests.testAdd",
-      "output" : "yabba…",
-      "status" : "fail"
+      "message" : "(\"0\") is not equal to (\"5\") - 2+3 should equal 5",
+      "name" : "testAdd",
+      "output" : "yabba",
+      "status" : "fail",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     },
     {
-      "name" : "MultipleSingleFailTests.testSub",
-      "output" : "dabba…",
-      "status" : "pass"
+      "name" : "testSub",
+      "output" : "dabba",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sub(2, 3), -1)"
     },
     {
-      "name" : "MultipleSingleFailTests.testMul",
-      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut I’ll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, that’s\ncertain; wise, or I’ll none; virtuous, or I’ll never cheapen\nher; fair, or I’ll ever look on h…",
-      "status" : "pass"
+      "name" : "testMul",
+      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut Iâll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, thatâs\ncertain; wise, or Iâll none; virtuous, or Iâll never cheapen\nher; fair, or Iâll ever look on her; mild, or come not near\nme; noble, or not I for an angel; of good discourse, an\n30excellent musician, and her hair shall be of what color it\nplease God. Ha! The Prince and Monsieur Love! I will hide\nme in the arbor.",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(mul(2, 3), 6)"
     },
     {
-      "message" : "/solution/Tests/MultipleSingleFailTests/MultipleSingleFailTests.swift:34: error: SecondSuite.testAdd : XCTAssertEqual failed: (\"0\") is not equal to (\"25\") - 12+13 should equal 25",
-      "name" : "SecondSuite.testAdd",
-      "output" : "yabba…",
-      "status" : "fail"
+      "message" : "(\"0\") is not equal to (\"25\") - 12+13 should equal 25",
+      "name" : "testAdd_2",
+      "output" : "yabba",
+      "status" : "fail",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(sum(12, 13), 25, \"12+13 should equal 25\")"
     },
     {
-      "name" : "SecondSuite.testSub",
-      "output" : "dabba…",
-      "status" : "pass"
+      "name" : "testSub_2",
+      "output" : "dabba",
+      "status" : "pass",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(sub(12, 13), -1)"
     },
     {
-      "name" : "SecondSuite.testMul",
-      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut I’ll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, that’s\ncertain; wise, or I’ll none; virtuous, or I’ll never cheapen\nher; fair, or I’ll ever look on h…",
-      "status" : "pass"
+      "name" : "testMul_2",
+      "output" : "Benedick's speech is 674 character's long.\nI will not be sworn but love may transform me to an oyster,\nbut Iâll take my oath on it, till he have made an oyster of me,\nhe shall never make me such a fool. One woman is fair, yet\nI am well; another is wise, yet I am well; another virtuous,\n25yet I am well; but till all graces be in one woman, one\nwoman shall not come in my grace. Rich she shall be, thatâs\ncertain; wise, or Iâll none; virtuous, or Iâll never cheapen\nher; fair, or Iâll ever look on her; mild, or come not near\nme; noble, or not I for an angel; of good discourse, an\n30excellent musician, and her hair shall be of what color it\nplease God. Ha! The Prince and Monsieur Love! I will hide\nme in the arbor.",
+      "status" : "pass",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(mul(12, 13), 156)"
     }
   ],
-  "version" : 2
+  "version" : 3
 }

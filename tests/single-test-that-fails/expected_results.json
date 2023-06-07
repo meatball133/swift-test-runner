@@ -2,10 +2,12 @@
   "status" : "fail",
   "tests" : [
     {
-      "message" : "/solution/Tests/SingleThatFailsTests/SingleThatFailsTests.swift:7: error: SingleThatFailsTests.testAdd : XCTAssertEqual failed: (\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
-      "name" : "SingleThatFailsTests.testAdd",
-      "status" : "fail"
+      "message" : "(\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
+      "name" : "testAdd",
+      "status" : "fail",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     }
   ],
-  "version" : 2
+  "version" : 3
 }
