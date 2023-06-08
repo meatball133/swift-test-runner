@@ -4,7 +4,6 @@
     {
       "name" : "testAdd",
       "status" : "pass",
-      "task_id" : 1,
       "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     }
   ],

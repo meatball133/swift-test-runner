@@ -1,13 +1,15 @@
 import XCTest
 
-@testable import MultipleAllPass
+@testable import MultipleSingleFail
 
-final class MultipleAllPassTests: XCTestCase {
+final class TaskMultipleSingleFailTests: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
   func testAdd() {
     XCTAssertEqual(sum(2, 3), 5, "2+3 should equal 5")
   }
 
-  func testSub() {
+  func testSub()  {
     XCTAssertEqual(sub(2, 3), -1)
   }
 
@@ -22,9 +24,11 @@ final class MultipleAllPassTests: XCTestCase {
   ]
 }
 
-final class SecondSuite: XCTestCase {
+final class TaskSecondSuite: XCTestCase {
+  let runAll = Bool(ProcessInfo.processInfo.environment["RUNALL", default: "false"]) ?? false
+
   func testAdd_2() {
-    XCTAssertEqual(sum(12, 13), 25, "2+3 should equal 5")
+    XCTAssertEqual(sum(12, 13), 25, "12+13 should equal 25")
   }
 
   func testSub_2() {

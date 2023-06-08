@@ -39,13 +39,13 @@ class TestRunner{
                     bodyList[rowIdx] = row.trimmingCharacters(in: CharacterSet.whitespaces)
                 }
                 body = bodyList.joined(separator: "\n")
-                tests.append(testCases(name: name, test_code: body, task_id: taskId))
+                tests.append(testCases(name: name, test_code: body, task_id: taskId == 0 ? nil : taskId))
             }
             return SyntaxVisitorContinueKind.visitChildren
         }
 
         override func visit(_ node: ClassDeclSyntax) -> SyntaxVisitorContinueKind {
-            if inClass == 0{
+            if inClass == 0 && String(describing: node.identifier).hasPrefix("Task") {
                 taskId += 1
             } 
             inClass += 1  

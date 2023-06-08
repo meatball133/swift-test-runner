@@ -4,7 +4,7 @@
       "Sources/MultipleAllPass/MultipleAllPass.swift"
     ],
     "test": [
-      "Tests/MultipleAllPassTests/MultipleAllPassTests.swift"
+      "Tests/TaskMultipleAllPassTests/TaskMultipleAllPassTests.swift"
     ]
   }
 }

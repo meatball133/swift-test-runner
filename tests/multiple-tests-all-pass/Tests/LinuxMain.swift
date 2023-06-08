@@ -1,7 +1,7 @@
 import XCTest
 
-import MultipleAllPassTests
+import TaskMultipleAllPassTests
 
 var tests = [XCTestCaseEntry]()
-tests += MultipleAllPassTests.allTests()
+tests += TaskMultipleAllPassTests.allTests()
 XCTMain(tests)

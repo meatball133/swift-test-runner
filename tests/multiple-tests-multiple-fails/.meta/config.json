@@ -4,7 +4,7 @@
       "Sources/MultipleMultipleFails/MultipleMultipleFails.swift"
     ],
     "test": [
-      "Tests/MultipleMultipleFailsTests/MultipleMultipleFailsTests.swift"
+      "Tests/TaskMultipleMultipleFailsTests/TaskMultipleMultipleFailsTests.swift"
     ]
   }
 }
