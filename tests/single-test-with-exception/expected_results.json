@@ -4,7 +4,7 @@
     {
       "message" : "/solution/Tests/SingleWithExceptionTests/SingleWithExceptionTests.swift:7: error: SingleWithExceptionTests.testAdd : XCTAssertEqual threw error \"testError(\"Kaboomtown!\")\" - 2+3 should equal 5",
       "name" : "testAdd",
-      "status" : "error",
+      "status" : "fail",
       "test_code" : "XCTAssertEqual(try sum(2, 3), 5, \"2+3 should equal 5\")"
     }
   ],

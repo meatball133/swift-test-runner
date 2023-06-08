@@ -120,6 +120,7 @@ class TestRunner{
 
     func addContext(context: String) {
         for (testIdx, testCase) in xmlTests.enumerated(){
+            var error = false
             if testCase.status == "fail"{
                 let contextLines = context.components(separatedBy: "\n")[1...]
                 var found = false
@@ -145,12 +146,12 @@ class TestRunner{
                 if !found {
                     var current = ""
                     var index = 1
+                    error = true
                     for row in contextLines{
                         let startIndex = row.index(row.startIndex, offsetBy: 0)
                         if row.count > 0{
                             if row.contains(testCase.name) && row[startIndex] != "[" {
                                 current = testCase.name
-                                xmlTests[testIdx].status = "error"
                                 if let startRange = row.range(of: "started at", options: .backwards) {
                                     if let newStartRange = row.range(of: ".", options: [], range: (startRange.upperBound..<row.endIndex)){
                                         if let endRange = row.range(of: "Test Case ", options: [], range: (newStartRange.upperBound..<row.endIndex)){
@@ -169,7 +170,7 @@ class TestRunner{
                 }
             }
         }
-        if testCase.status != "error"{
+        if !error {
             let contextLinesOutput = context.components(separatedBy: "\n")[1...]
             var start = 0
             var startString = ""
@@ -181,18 +182,14 @@ class TestRunner{
                             if let newStartRange = row.range(of: ".", options: [], range: (startRange.upperBound..<row.endIndex)){
                                 let newIndex = row.index(newStartRange.upperBound, offsetBy: 3)
                                 startString = String(row[newIndex..<row.endIndex])
-                                var checkString = ""
-                                if startString.count >= 9{
-                                    checkString = startString.substring(with: NSRange(location: 0, length: 9))
-                                }
-                                if checkString == "Test Case" || startString.contains(testCase.name + "'"){
+                                if startString.hasPrefix("Test Case") || startString.contains(testCase.name + "'"){
                                     startString = ""
                                     break
                                 }
                             }
                         }
                         start = rowIdx + 2
-                    } else if row.contains(testCase.name + "'") && row[startIndex] != "[" {
+                    } else if (row.contains(testCase.name + "'") && row[startIndex] != "[") || row.hasPrefix("\\")  {
                         if start < rowIdx{
                             xmlTests[testIdx].output = startString + "\n" + contextLinesOutput[start...rowIdx].joined(separator: "\n")
                         }
@@ -239,7 +236,7 @@ class TestRunner{
         encoder.outputFormatting.update(with: .prettyPrinted)
         encoder.outputFormatting.update(with: .sortedKeys)
         var json : testFile
-        if xmlTests.contains {$0.status == "fail" || $0.status == "error" } {
+        if xmlTests.contains {$0.status == "fail" } {
             json = testFile(status: "fail", tests: xmlTests)
         }
         else if error != ""{
