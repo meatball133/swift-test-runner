@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/SingleWithException/SingleWithException.swift"
+    ],
+    "test": [
+      "Tests/SingleWithExceptionTests/SingleWithExceptionTests.swift"
+    ]
+  }
+}

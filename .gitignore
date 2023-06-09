@@ -1,0 +1,7 @@
+tests/*/results.json
+.DS_Store
+**/.build
+**/Packages
+**/Package.resolved
+**/*.xcodeproj
+bin/TestRunner

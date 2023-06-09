@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/CompileError/CompileError.swift"
+    ],
+    "test": [
+      "Tests/CompileErrorTests/CompileErrorTests.swift"
+    ]
+  }
+}

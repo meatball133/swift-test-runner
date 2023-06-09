@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": ["swift"],
+      "name": "Debug TestRunner (src/testrunner)",
+      "program": "${workspaceFolder:swift-test-runner}/src/testrunner/.build/debug/TestRunner",
+      "args": [],
+      "cwd": "${workspaceFolder:swift-test-runner}/src/testrunner",
+      "preLaunchTask": "swift: Build Debug TestRunner (src/testrunner)"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": ["swift"],
+      "name": "Release TestRunner (src/testrunner)",
+      "program": "${workspaceFolder:swift-test-runner}/src/testrunner/.build/release/TestRunner",
+      "args": [],
+      "cwd": "${workspaceFolder:swift-test-runner}/src/testrunner",
+      "preLaunchTask": "swift: Build Release TestRunner (src/testrunner)"
+    }
+  ]
+}

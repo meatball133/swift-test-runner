@@ -1,0 +1,78 @@
+Planning build
+warning: 'multiple-tests-single-fail': /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-frontend -frontend -c -primary-file /home/meatball/projects/swift-test-runner/tests/multiple-tests-single-fail/Package.swift -target x86_64-unknown-linux-gnu -disable-objc-interop -I /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -swift-version 5 -package-description-version 5.2.0 -new-driver-path /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-driver -disable-implicit-concurrency-module-import -disable-implicit-string-processing-module-import -empty-abi-descriptor -resource-dir /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift -module-name main -o /tmp/TemporaryDirectory.RcB8Bq/Package-1.o
+/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-autolink-extract /tmp/TemporaryDirectory.RcB8Bq/Package-1.o -o /tmp/TemporaryDirectory.RcB8Bq/main-1.autolink
+/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/clang -fuse-ld=gold -pie -Xlinker -rpath -Xlinker /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux/x86_64/swiftrt.o /tmp/TemporaryDirectory.RcB8Bq/Package-1.o @/tmp/TemporaryDirectory.RcB8Bq/main-1.autolink -L /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux -lswiftCore --target=x86_64-unknown-linux-gnu -v -L /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -lPackageDescription -Xlinker -rpath -Xlinker /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -o /tmp/TemporaryDirectory.edRHmO/multiple-tests-single-fail-manifest
+Swift version 5.7 (swift-5.7-RELEASE)
+Target: x86_64-unknown-linux-gnu
+clang version 13.0.0 (https://github.com/apple/llvm-project.git 3dade082a9b1989207a7fa7f3975868485d16a49)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/12
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ "/usr/bin/ld.gold" -pie --hash-style=both --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o /tmp/TemporaryDirectory.edRHmO/multiple-tests-single-fail-manifest /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/../lib -L/lib -L/usr/lib -rpath /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux/x86_64/swiftrt.o /tmp/TemporaryDirectory.RcB8Bq/Package-1.o -lFoundation -lswiftGlibc -lm -lpthread -lutil -ldl -lswiftDispatch -ldispatch -lBlocksRuntime -lswift_Concurrency -lswiftCore -lswiftSwiftOnoneSupport -lswiftCore -lPackageDescription -rpath /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+Building for debugging...
+Build complete! (1.49s)
+[1/6] Testing TaskMultipleSingleFailTests.TaskMultipleSingleFailTests/testAdd
+[2/6] Testing TaskMultipleSingleFailTests.TaskSecondSuite/testAdd_2
+[3/6] Testing TaskMultipleSingleFailTests.TaskSecondSuite/testMul_2
+[4/6] Testing TaskMultipleSingleFailTests.TaskMultipleSingleFailTests/testSub
+[5/6] Testing TaskMultipleSingleFailTests.TaskMultipleSingleFailTests/testMul
+[6/6] Testing TaskMultipleSingleFailTests.TaskSecondSuite/testSub_2
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.337
+Test Suite 'TaskMultipleSingleFailTests' started at 2023-06-09 18:05:02.339Test Case 'TaskMultipleSingleFailTests.testAdd' started at 2023-06-09 18:05:02.339yabba
+/home/meatball/projects/swift-test-runner/tests/multiple-tests-single-fail/Tests/TaskMultipleSingleFailTests/TaskMultipleSingleFailTests.swift:9: error: TaskMultipleSingleFailTests.testAdd : XCTAssertEqual failed: ("0") is not equal to ("5") - 2+3 should equal 5Test Case 'TaskMultipleSingleFailTests.testAdd' failed (0.001 seconds)
+Test Suite 'TaskMultipleSingleFailTests' failed at 2023-06-09 18:05:02.340
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' failed at 2023-06-09 18:05:02.340
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.332
+Test Suite 'TaskSecondSuite' started at 2023-06-09 18:05:02.333
+Test Case 'TaskSecondSuite.testAdd_2' started at 2023-06-09 18:05:02.333yabba
+/home/meatball/projects/swift-test-runner/tests/multiple-tests-single-fail/Tests/TaskMultipleSingleFailTests/TaskMultipleSingleFailTests.swift:31: error: TaskSecondSuite.testAdd_2 : XCTAssertEqual failed: ("0") is not equal to ("25") - 12+13 should equal 25Test Case 'TaskSecondSuite.testAdd_2' failed (0.001 seconds)Test Suite 'TaskSecondSuite' failed at 2023-06-09 18:05:02.334Executed 1 test, with 1 failure (0 unexpected) in 0.001 (0.001) secondsTest Suite 'Selected tests' failed at 2023-06-09 18:05:02.334Executed 1 test, with 1 failure (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.332Test Suite 'TaskSecondSuite' started at 2023-06-09 18:05:02.333Test Case 'TaskSecondSuite.testMul_2' started at 2023-06-09 18:05:02.333Benedick's speech is 674 character's long.
+I will not be sworn but love may transform me to an oyster,
+but I’ll take my oath on it, till he have made an oyster of me,
+he shall never make me such a fool. One woman is fair, yet
+I am well; another is wise, yet I am well; another virtuous,
+25yet I am well; but till all graces be in one woman, one
+woman shall not come in my grace. Rich she shall be, that’s
+certain; wise, or I’ll none; virtuous, or I’ll never cheapen
+her; fair, or I’ll ever look on her; mild, or come not near
+me; noble, or not I for an angel; of good discourse, an
+30excellent musician, and her hair shall be of what color it
+please God. Ha! The Prince and Monsieur Love! I will hide
+me in the arbor.
+Test Case 'TaskSecondSuite.testMul_2' passed (0.007 seconds)Test Suite 'TaskSecondSuite' passed at 2023-06-09 18:05:02.340Executed 1 test, with 0 failures (0 unexpected) in 0.007 (0.007) secondsTest Suite 'Selected tests' passed at 2023-06-09 18:05:02.341Executed 1 test, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.332
+Test Suite 'TaskMultipleSingleFailTests' started at 2023-06-09 18:05:02.333
+Test Case 'TaskMultipleSingleFailTests.testSub' started at 2023-06-09 18:05:02.333dabba
+Test Case 'TaskMultipleSingleFailTests.testSub' passed (0.005 seconds)Test Suite 'TaskMultipleSingleFailTests' passed at 2023-06-09 18:05:02.339Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.005) secondsTest Suite 'Selected tests' passed at 2023-06-09 18:05:02.339Executed 1 test, with 0 failures (0 unexpected) in 0.005 (0.005) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.332
+Test Suite 'TaskMultipleSingleFailTests' started at 2023-06-09 18:05:02.333
+Test Case 'TaskMultipleSingleFailTests.testMul' started at 2023-06-09 18:05:02.333Benedick's speech is 674 character's long.
+I will not be sworn but love may transform me to an oyster,
+but I’ll take my oath on it, till he have made an oyster of me,
+he shall never make me such a fool. One woman is fair, yet
+I am well; another is wise, yet I am well; another virtuous,
+25yet I am well; but till all graces be in one woman, one
+woman shall not come in my grace. Rich she shall be, that’s
+certain; wise, or I’ll none; virtuous, or I’ll never cheapen
+her; fair, or I’ll ever look on her; mild, or come not near
+me; noble, or not I for an angel; of good discourse, an
+30excellent musician, and her hair shall be of what color it
+please God. Ha! The Prince and Monsieur Love! I will hide
+me in the arbor.
+Test Case 'TaskMultipleSingleFailTests.testMul' passed (0.007 seconds)
+Test Suite 'TaskMultipleSingleFailTests' passed at 2023-06-09 18:05:02.340
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'Selected tests' passed at 2023-06-09 18:05:02.341Executed 1 test, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:05:02.337Test Suite 'TaskSecondSuite' started at 2023-06-09 18:05:02.338Test Case 'TaskSecondSuite.testSub_2' started at 2023-06-09 18:05:02.338dabba
+Test Case 'TaskSecondSuite.testSub_2' passed (0.101 seconds)
+Test Suite 'TaskSecondSuite' passed at 2023-06-09 18:05:02.439Executed 1 test, with 0 failures (0 unexpected) in 0.101 (0.101) seconds
+Test Suite 'Selected tests' passed at 2023-06-09 18:05:02.439
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.101 (0.101) seconds

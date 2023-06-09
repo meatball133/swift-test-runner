@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite name="TestResults" errors="0" tests="3" failures="2" time="0.0">
+<testcase classname="TaskMultipleMultipleFailsTests.TaskMultipleMultipleFailsTests" name="testMul" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleMultipleFailsTests.TaskMultipleMultipleFailsTests" name="testAdd" time="0.0">
+<failure message="failed"></failure>
+</testcase>
+<testcase classname="TaskMultipleMultipleFailsTests.TaskMultipleMultipleFailsTests" name="testSub" time="0.0">
+<failure message="failed"></failure>
+</testcase>
+</testsuite>
+</testsuites>

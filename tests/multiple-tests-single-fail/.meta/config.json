@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/MultipleSingleFail/MultipleSingleFail.swift"
+    ],
+    "test": [
+      "Tests/TaskMultipleSingleFailTests/TaskMultipleSingleFailTests.swift"
+    ]
+  }
+}

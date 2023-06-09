@@ -1,0 +1,46 @@
+Planning build
+warning: 'multiple-tests-all-pass': /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-frontend -frontend -c -primary-file /home/meatball/projects/swift-test-runner/tests/multiple-tests-all-pass/Package.swift -target x86_64-unknown-linux-gnu -disable-objc-interop -I /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -swift-version 5 -package-description-version 5.2.0 -new-driver-path /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-driver -disable-implicit-concurrency-module-import -disable-implicit-string-processing-module-import -empty-abi-descriptor -resource-dir /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift -module-name main -o /tmp/TemporaryDirectory.fxcpQ3/Package-1.o
+/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/swift-autolink-extract /tmp/TemporaryDirectory.fxcpQ3/Package-1.o -o /tmp/TemporaryDirectory.fxcpQ3/main-1.autolink
+/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/clang -fuse-ld=gold -pie -Xlinker -rpath -Xlinker /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux/x86_64/swiftrt.o /tmp/TemporaryDirectory.fxcpQ3/Package-1.o @/tmp/TemporaryDirectory.fxcpQ3/main-1.autolink -L /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux -lswiftCore --target=x86_64-unknown-linux-gnu -v -L /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -lPackageDescription -Xlinker -rpath -Xlinker /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -o /tmp/TemporaryDirectory.ZIeAgm/multiple-tests-all-pass-manifest
+Swift version 5.7 (swift-5.7-RELEASE)
+Target: x86_64-unknown-linux-gnu
+clang version 13.0.0 (https://github.com/apple/llvm-project.git 3dade082a9b1989207a7fa7f3975868485d16a49)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/12
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/12
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+ "/usr/bin/ld.gold" -pie --hash-style=both --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o /tmp/TemporaryDirectory.ZIeAgm/multiple-tests-all-pass-manifest /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/bin/../lib -L/lib -L/usr/lib -rpath /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/linux/x86_64/swiftrt.o /tmp/TemporaryDirectory.fxcpQ3/Package-1.o -lFoundation -lswiftGlibc -lm -lpthread -lutil -ldl -lswiftDispatch -ldispatch -lBlocksRuntime -lswift_Concurrency -lswiftCore -lswiftSwiftOnoneSupport -lswiftCore -lPackageDescription -rpath /home/meatball/swift/swift-5.7-RELEASE-ubuntu22.04/usr/lib/swift/pm/ManifestAPI -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+Building for debugging...
+Build complete! (1.49s)
+[1/6] Testing TaskMultipleAllPassTests.TaskMultipleAllPassTests/testSub
+[2/6] Testing TaskMultipleAllPassTests.TaskMultipleAllPassTests/testAdd
+[3/6] Testing TaskMultipleAllPassTests.TaskMultipleAllPassTests/testMul
+[4/6] Testing TaskMultipleAllPassTests.TaskSecondSuite/testAdd_2
+[5/6] Testing TaskMultipleAllPassTests.TaskSecondSuite/testSub_2
+[6/6] Testing TaskMultipleAllPassTests.TaskSecondSuite/testMul_2
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.090Test Suite 'TaskMultipleAllPassTests' started at 2023-06-09 18:04:57.091Test Case 'TaskMultipleAllPassTests.testSub' started at 2023-06-09 18:04:57.091Test Case 'TaskMultipleAllPassTests.testSub' passed (0.001 seconds)Test Suite 'TaskMultipleAllPassTests' passed at 2023-06-09 18:04:57.092Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' passed at 2023-06-09 18:04:57.092
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.090
+Test Suite 'TaskMultipleAllPassTests' started at 2023-06-09 18:04:57.091
+Test Case 'TaskMultipleAllPassTests.testAdd' started at 2023-06-09 18:04:57.091Test Case 'TaskMultipleAllPassTests.testAdd' passed (0.001 seconds)
+Test Suite 'TaskMultipleAllPassTests' passed at 2023-06-09 18:04:57.092
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' passed at 2023-06-09 18:04:57.092
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.090
+Test Suite 'TaskMultipleAllPassTests' started at 2023-06-09 18:04:57.091Test Case 'TaskMultipleAllPassTests.testMul' started at 2023-06-09 18:04:57.091Test Case 'TaskMultipleAllPassTests.testMul' passed (0.001 seconds)Test Suite 'TaskMultipleAllPassTests' passed at 2023-06-09 18:04:57.092Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) secondsTest Suite 'Selected tests' passed at 2023-06-09 18:04:57.092Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.091Test Suite 'TaskSecondSuite' started at 2023-06-09 18:04:57.092Test Case 'TaskSecondSuite.testAdd_2' started at 2023-06-09 18:04:57.092Test Case 'TaskSecondSuite.testAdd_2' passed (0.001 seconds)Test Suite 'TaskSecondSuite' passed at 2023-06-09 18:04:57.093Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) secondsTest Suite 'Selected tests' passed at 2023-06-09 18:04:57.093
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.090
+Test Suite 'TaskSecondSuite' started at 2023-06-09 18:04:57.091
+Test Case 'TaskSecondSuite.testSub_2' started at 2023-06-09 18:04:57.091Test Case 'TaskSecondSuite.testSub_2' passed (0.002 seconds)Test Suite 'TaskSecondSuite' passed at 2023-06-09 18:04:57.093Executed 1 test, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'Selected tests' passed at 2023-06-09 18:04:57.093
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'Selected tests' started at 2023-06-09 18:04:57.091
+Test Suite 'TaskSecondSuite' started at 2023-06-09 18:04:57.092Test Case 'TaskSecondSuite.testMul_2' started at 2023-06-09 18:04:57.092Test Case 'TaskSecondSuite.testMul_2' passed (0.001 seconds)Test Suite 'TaskSecondSuite' passed at 2023-06-09 18:04:57.093Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) secondsTest Suite 'Selected tests' passed at 2023-06-09 18:04:57.093Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.001) seconds

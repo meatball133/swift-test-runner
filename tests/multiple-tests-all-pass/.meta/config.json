@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/MultipleAllPass/MultipleAllPass.swift"
+    ],
+    "test": [
+      "Tests/TaskMultipleAllPassTests/TaskMultipleAllPassTests.swift"
+    ]
+  }
+}

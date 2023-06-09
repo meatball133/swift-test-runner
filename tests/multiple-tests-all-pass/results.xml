@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite name="TestResults" errors="0" tests="6" failures="0" time="0.0">
+<testcase classname="TaskMultipleAllPassTests.TaskMultipleAllPassTests" name="testSub" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleAllPassTests.TaskMultipleAllPassTests" name="testAdd" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleAllPassTests.TaskMultipleAllPassTests" name="testMul" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleAllPassTests.TaskSecondSuite" name="testAdd_2" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleAllPassTests.TaskSecondSuite" name="testSub_2" time="0.0">
+</testcase>
+<testcase classname="TaskMultipleAllPassTests.TaskSecondSuite" name="testMul_2" time="0.0">
+</testcase>
+</testsuite>
+</testsuites>

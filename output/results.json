@@ -1,0 +1,92 @@
+{
+  "status" : "fail",
+  "tests" : [
+    {
+      "name" : "testGetCard",
+      "status" : "pass",
+      "test_code" : "let stack = (1...10).shuffled()\nguard let idx = stack.indices.randomElement() else { fatalError(\"test suite failure\") }\nXCTAssertEqual(getCard(at: idx, from: stack), stack[idx])"
+    },
+    {
+      "name" : "testSetCard",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 4, 3, 6, 1, 7, 2, 8, 5]\nlet idx = 5\nXCTAssertEqual(setCard(at: idx, in: stack, to: 10), [9, 4, 3, 6, 1, 10, 2, 8, 5])"
+    },
+    {
+      "name" : "testSetCardIndexTooLow",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 4, 3, 6, 1, 7, 2, 8, 5]\nlet idx = -3\nXCTAssertEqual(setCard(at: idx, in: stack, to: 10), stack)"
+    },
+    {
+      "name" : "testSetCardIndexTooHigh",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 4, 3, 6, 1, 7, 2, 8, 5]\nlet idx = 50\nXCTAssertEqual(setCard(at: idx, in: stack, to: 10), stack)"
+    },
+    {
+      "message" : "(\"[1, 7, 5, 8, 3, 9, 6, 4, 2]\") is not equal to (\"[1, 7, 5, 8, 3, 9, 6, 4, 2, 10]\") -",
+      "name" : "testInsertAtTop",
+      "status" : "fail",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [1, 7, 5, 8, 3, 9, 6, 4, 2]\nXCTAssertEqual(insert(10, atTopOf: stack), [1, 7, 5, 8, 3, 9, 6, 4, 2, 10])"
+    },
+    {
+      "name" : "testRemoveCard",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 2, 1, 6, 5, 7, 4, 3, 8]\nlet idx = 2\nXCTAssertEqual(removeCard(at: idx, from: stack), [9, 2, 6, 5, 7, 4, 3, 8])"
+    },
+    {
+      "name" : "testRemoveCardIndexTooLow",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 2, 1, 6, 5, 7, 4, 3, 8]\nlet idx = -2\nXCTAssertEqual(removeCard(at: idx, from: stack), stack)"
+    },
+    {
+      "name" : "testRemoveCardIndexTooHigh",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [9, 2, 1, 6, 5, 7, 4, 3, 8]\nlet idx = 20\nXCTAssertEqual(removeCard(at: idx, from: stack), stack)"
+    },
+    {
+      "name" : "testRemoveTopCard",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [2, 7, 4, 6, 9, 1, 8, 3, 5]\nXCTAssertEqual(removeTopCard(stack), [2, 7, 4, 6, 9, 1, 8, 3])"
+    },
+    {
+      "name" : "testRemoveTopCardFromEmptyStack",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [Int]()\nXCTAssertEqual(removeTopCard(stack), stack)"
+    },
+    {
+      "name" : "testInsertAtBottom",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [4, 3, 8, 9, 1, 7, 6, 5, 2]\nXCTAssertEqual(insert(10, atBottomOf: stack), [10, 4, 3, 8, 9, 1, 7, 6, 5, 2])"
+    },
+    {
+      "name" : "testRemoveBottomCard",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [8, 7, 4, 2, 6, 5, 3, 1, 9]\nXCTAssertEqual(removeBottomCard(stack), [7, 4, 2, 6, 5, 3, 1, 9])"
+    },
+    {
+      "name" : "testRemoveBottomCardFromEmptyStack",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [Int]()\nXCTAssertEqual(removeTopCard(stack), stack)"
+    },
+    {
+      "name" : "testCheckSizeTrue",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [6, 9, 7, 8, 2, 3, 4, 5, 1]\nXCTAssertTrue(checkSizeOfStack(stack, 9))"
+    },
+    {
+      "name" : "testCheckSizeFalse",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [6, 9, 7, 8, 2, 3, 4, 5, 1]\nXCTAssertFalse(checkSizeOfStack(removeBottomCard(stack), 9))"
+    },
+    {
+      "name" : "testEvenCardCount",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [4, 6, 3, 7, 1, 9, 5, 8, 2]\nXCTAssertEqual(evenCardCount(stack), 4)"
+    },
+    {
+      "name" : "testEvenCardCountZero",
+      "status" : "pass",
+      "test_code" : "try XCTSkipIf(true && !runAll)  \/\/ change true to false to run this test\nlet stack = [7, 3, 7, 1, 5, 5, 3, 9, 9]\nXCTAssertEqual(evenCardCount(stack), 0)"
+    }
+  ],
+  "version" : 3
+}

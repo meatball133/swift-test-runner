@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite name="TestResults" errors="0" tests="4" failures="1" time="0.0">
+<testcase classname="MultipleWithExceptionTests.MultipleWithExceptionTests" name="testMul" time="0.0">
+</testcase>
+<testcase classname="MultipleWithExceptionTests.MultipleWithExceptionTests" name="testSub" time="0.0">
+</testcase>
+<testcase classname="MultipleWithExceptionTests.MultipleWithExceptionTests" name="testThrow" time="0.0">
+<failure message="failed"></failure>
+</testcase>
+<testcase classname="MultipleWithExceptionTests.MultipleWithExceptionTests" name="testAdd" time="0.0">
+</testcase>
+</testsuite>
+</testsuites>
