@@ -2,7 +2,7 @@ import XCTest
 
 @testable import MultipleMultipleFails
 
-final class MultipleMultipleFailsTests: XCTestCase {
+final class TaskMultipleMultipleFailsTests: XCTestCase {
   func testAdd() {
     XCTAssertEqual(sum(2, 3), 5, "2+3 should equal 5")
   }

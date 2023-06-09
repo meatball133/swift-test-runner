@@ -2,19 +2,25 @@
   "status" : "fail",
   "tests" : [
     {
-      "message" : "/solution/Tests/MultipleMultipleFailsTests/MultipleMultipleFailsTests.swift:7: error: MultipleMultipleFailsTests.testAdd : XCTAssertEqual failed: (\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
-      "name" : "MultipleMultipleFailsTests.testAdd",
-      "status" : "fail"
+      "message" : "(\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
+      "name" : "testAdd",
+      "status" : "fail",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     },
     {
-      "message" : "/solution/Tests/MultipleMultipleFailsTests/MultipleMultipleFailsTests.swift:11: error: MultipleMultipleFailsTests.testSub : XCTAssertEqual failed: (\"5\") is not equal to (\"-1\") - ",
-      "name" : "MultipleMultipleFailsTests.testSub",
-      "status" : "fail"
+      "message" : "(\"5\") is not equal to (\"-1\") -",
+      "name" : "testSub",
+      "status" : "fail",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sub(2, 3), -1)"
     },
     {
-      "name" : "MultipleMultipleFailsTests.testMul",
-      "status" : "pass"
+      "name" : "testMul",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(mul(2, 3), 6)"
     }
   ],
-  "version" : 2
+  "version" : 3
 }

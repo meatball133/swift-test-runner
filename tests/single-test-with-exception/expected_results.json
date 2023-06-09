@@ -3,9 +3,10 @@
   "tests" : [
     {
       "message" : "/solution/Tests/SingleWithExceptionTests/SingleWithExceptionTests.swift:7: error: SingleWithExceptionTests.testAdd : XCTAssertEqual threw error \"testError(\"Kaboomtown!\")\" - 2+3 should equal 5",
-      "name" : "SingleWithExceptionTests.testAdd",
-      "status" : "fail"
+      "name" : "testAdd",
+      "status" : "fail",
+      "test_code" : "XCTAssertEqual(try sum(2, 3), 5, \"2+3 should equal 5\")"
     }
   ],
-  "version" : 2
+  "version" : 3
 }

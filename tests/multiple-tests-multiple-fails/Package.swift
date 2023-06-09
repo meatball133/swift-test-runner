@@ -22,7 +22,7 @@ let package = Package(
             name: "MultipleMultipleFails",
             dependencies: []),
         .testTarget(
-            name: "MultipleMultipleFailsTests",
+            name: "TaskMultipleMultipleFailsTests",
             dependencies: ["MultipleMultipleFails"]),
     ]
 )

@@ -1,0 +1,10 @@
+{
+  "files": {
+    "solution": [
+      "Sources/SingleThatFails/SingleThatFails.swift"
+    ],
+    "test": [
+      "Tests/SingleThatFailsTests/SingleThatFailsTests.swift"
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import XCTest
 
 @testable import MultipleAllPass
 
-final class MultipleAllPassTests: XCTestCase {
+final class TaskMultipleAllPassTests: XCTestCase {
   func testAdd() {
     XCTAssertEqual(sum(2, 3), 5, "2+3 should equal 5")
   }
@@ -22,22 +22,22 @@ final class MultipleAllPassTests: XCTestCase {
   ]
 }
 
-final class SecondSuite: XCTestCase {
-  func testAdd() {
+final class TaskSecondSuite: XCTestCase {
+  func testAdd_2() {
     XCTAssertEqual(sum(12, 13), 25, "2+3 should equal 5")
   }
 
-  func testSub() {
+  func testSub_2() {
     XCTAssertEqual(sub(12, 13), -1)
   }
 
-  func testMul() {
+  func testMul_2() {
     XCTAssertEqual(mul(12, 13), 156)
   }
 
   static var allTests = [
-    ("testAdd", testAdd),
-    ("testSub", testSub),
-    ("testMul", testMul),
+    ("testAdd_2", testAdd_2),
+    ("testSub_2", testSub_2),
+    ("testMul_2", testMul_2),
   ]
 }

@@ -2,29 +2,41 @@
   "status" : "pass",
   "tests" : [
     {
-      "name" : "MultipleAllPassTests.testAdd",
-      "status" : "pass"
+      "name" : "testAdd",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     },
     {
-      "name" : "MultipleAllPassTests.testSub",
-      "status" : "pass"
+      "name" : "testSub",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(sub(2, 3), -1)"
     },
     {
-      "name" : "MultipleAllPassTests.testMul",
-      "status" : "pass"
+      "name" : "testMul",
+      "status" : "pass",
+      "task_id" : 1,
+      "test_code" : "XCTAssertEqual(mul(2, 3), 6)"
     },
     {
-      "name" : "SecondSuite.testAdd",
-      "status" : "pass"
+      "name" : "testAdd_2",
+      "status" : "pass",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(sum(12, 13), 25, \"2+3 should equal 5\")"
     },
     {
-      "name" : "SecondSuite.testSub",
-      "status" : "pass"
+      "name" : "testSub_2",
+      "status" : "pass",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(sub(12, 13), -1)"
     },
     {
-      "name" : "SecondSuite.testMul",
-      "status" : "pass"
+      "name" : "testMul_2",
+      "status" : "pass",
+      "task_id" : 2,
+      "test_code" : "XCTAssertEqual(mul(12, 13), 156)"
     }
   ],
-  "version" : 2
+  "version" : 3
 }

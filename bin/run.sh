@@ -24,6 +24,14 @@ fi
 SLUG="$1"
 INPUT_DIR="${2%/}"
 OUTPUT_DIR="${3%/}"
+junit_file="${INPUT_DIR}/results.xml"
+capture_file="${OUTPUT_DIR}/capture"
+spec_file="${INPUT_DIR}/$(jq -r '.files.test[0]' ${INPUT_DIR}/.meta/config.json)"
+results_file="${OUTPUT_DIR}/results.json"
 BASEDIR=$(dirname "$0")
 
-RUNALL=true "${BASEDIR}"/TestRunner --slug "${SLUG}" --solution-directory "${INPUT_DIR}" --output-directory "${OUTPUT_DIR}" --swift-location $(which swift) --build-directory "/tmp"
+touch "${results_file}"
+
+swift test --package-path "${INPUT_DIR}" -v --parallel --xunit-output "${junit_file}" &> "${capture_file}"
+
+./bin/TestRunner "${spec_file}" "${junit_file}" "${capture_file}" "${results_file}"

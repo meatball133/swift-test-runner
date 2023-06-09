@@ -22,7 +22,7 @@ let package = Package(
             name: "MultipleAllPass",
             dependencies: []),
         .testTarget(
-            name: "MultipleAllPassTests",
+            name: "TaskMultipleAllPassTests",
             dependencies: ["MultipleAllPass"]),
     ]
 )

@@ -1,4 +1,4 @@
-FROM swift:5.5.3-bionic AS builder
+FROM swift:5.8-bionic AS builder
 # WORKDIR /opt/testrunner
 COPY src/testrunner ./
 
@@ -7,7 +7,8 @@ RUN swift --version
 #RUN swift package clean
 RUN swift build --configuration release
 
-FROM swift:5.5.3-bionic
+FROM swift:5.8-bionic
+RUN apt-get update && apt-get install -y jq
 WORKDIR /opt/test-runner/
 COPY bin/ bin/
 COPY --from=builder /.build/release/TestRunner bin/
