@@ -2,14 +2,14 @@
   "status" : "fail",
   "tests" : [
     {
-      "message" : "(\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
+      "message" : "testAdd : XCTAssertEqual failed: (\"-1\") is not equal to (\"5\") - 2+3 should equal 5",
       "name" : "testAdd",
       "status" : "fail",
       "task_id" : 1,
       "test_code" : "XCTAssertEqual(sum(2, 3), 5, \"2+3 should equal 5\")"
     },
     {
-      "message" : "(\"5\") is not equal to (\"-1\") -",
+      "message" : "testSub : XCTAssertEqual failed: (\"5\") is not equal to (\"-1\") -",
       "name" : "testSub",
       "status" : "fail",
       "task_id" : 1,

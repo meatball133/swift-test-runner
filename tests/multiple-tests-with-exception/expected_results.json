@@ -17,7 +17,7 @@
       "test_code" : "XCTAssertEqual(mul(3, 2), 6)"
     },
     {
-      "message" : "/solution/Tests/MultipleWithExceptionTests/MultipleWithExceptionTests.swift:19: error: MultipleWithExceptionTests.testThrow : XCTAssertEqual threw error \"testError(\"Oh noes! Div by zeroes!!!\")\" -",
+      "message" : "testThrow : XCTAssertEqual threw error \"testError(\"Oh noes! Div by zeroes!!!\")\" -",
       "name" : "testThrow",
       "status" : "fail",
       "test_code" : "XCTAssertEqual(try throwErr(2, 0), 6)"
