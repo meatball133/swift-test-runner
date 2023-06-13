@@ -297,7 +297,6 @@ class TestRunner{
                 camelCase += word.prefix(1).uppercased() + word.dropFirst()
             }
         }
-        print(camelCase)
         return camelCase
     }
 }
