@@ -1,3 +1,7 @@
+# 1.1.1
+
+- Fixed an issue causing help functions to be marked as test cases
+
 # 1.1.0
 
 - The test runner will run one test at a time, this is to be able to give a better error message when a test fails.

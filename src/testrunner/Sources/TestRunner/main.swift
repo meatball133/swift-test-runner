@@ -33,6 +33,7 @@ class TestRunner{
             let bodyCheck = node.body
             if bodyCheck != nil{
                 let name: String = String(describing: node.identifier)
+                guard name.hasPrefix("test") else { return SyntaxVisitorContinueKind.visitChildren }
                 var body: String = String(describing: bodyCheck!).trimmingCharacters(in: charactersToRemove)
                 body = String(body[body.index(after: body.startIndex)..<body.index(before: body.endIndex)]).trimmingCharacters(in: charactersToRemove)
                 var bodyList = body.components(separatedBy: "\n")
