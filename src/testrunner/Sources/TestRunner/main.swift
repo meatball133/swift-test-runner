@@ -248,7 +248,7 @@ class TestRunner{
         let message = something.components(separatedBy: "\n")[1...]
         var start = 0
         for (rowIdx, row) in message.enumerated(){
-            if row.contains("CompileError.swift:") || row.contains("\(camelCase(slug: slug))Tests.swift:"){
+            if row.contains("CompileError.swift:") || row.contains("\(camelCase(slug: slug))Tests.swift:") || row.contains("\(camelCase(slug: slug)).swift:") {
                 start = rowIdx + 1
                 break
             }

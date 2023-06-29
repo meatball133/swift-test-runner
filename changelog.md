@@ -1,6 +1,7 @@
 # 1.1.1
 
 - Fixed an issue causing help functions to be marked as test cases
+- Made the output when writting a compile error shorter
 
 # 1.1.0
 
