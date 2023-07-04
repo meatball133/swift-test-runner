@@ -33,6 +33,7 @@ class TestRunner{
             let bodyCheck = node.body
             if bodyCheck != nil{
                 let name: String = String(describing: node.identifier)
+                guard name.hasPrefix("test") else { return SyntaxVisitorContinueKind.visitChildren }
                 var body: String = String(describing: bodyCheck!).trimmingCharacters(in: charactersToRemove)
                 body = String(body[body.index(after: body.startIndex)..<body.index(before: body.endIndex)]).trimmingCharacters(in: charactersToRemove)
                 var bodyList = body.components(separatedBy: "\n")
@@ -247,7 +248,7 @@ class TestRunner{
         let message = something.components(separatedBy: "\n")[1...]
         var start = 0
         for (rowIdx, row) in message.enumerated(){
-            if row.contains("CompileError.swift:") || row.contains("\(camelCase(slug: slug))Tests.swift:"){
+            if row.contains("CompileError.swift:") || row.contains("\(camelCase(slug: slug))Tests.swift:") || row.contains("\(camelCase(slug: slug)).swift:") {
                 start = rowIdx + 1
                 break
             }
