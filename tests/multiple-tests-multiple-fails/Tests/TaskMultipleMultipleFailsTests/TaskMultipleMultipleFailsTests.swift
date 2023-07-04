@@ -14,10 +14,4 @@ final class TaskMultipleMultipleFailsTests: XCTestCase {
   func testMul() {
     XCTAssertEqual(mul(2, 3), 6)
   }
-
-  static var allTests = [
-    ("testAdd", testAdd),
-    ("testSub", testSub),
-    ("testMul", testMul),
-  ]
 }

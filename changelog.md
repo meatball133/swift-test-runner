@@ -1,3 +1,7 @@
+# 1.1.2
+
+- Updated test files to follow a more modern design.
+
 # 1.1.1
 
 - Fixed an issue causing help functions to be marked as test cases

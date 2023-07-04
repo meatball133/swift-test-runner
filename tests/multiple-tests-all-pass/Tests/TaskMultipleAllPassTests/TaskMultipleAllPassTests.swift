@@ -14,12 +14,6 @@ final class TaskMultipleAllPassTests: XCTestCase {
   func testMul() {
     XCTAssertEqual(mul(2, 3), 6)
   }
-
-  static var allTests = [
-    ("testAdd", testAdd),
-    ("testSub", testSub),
-    ("testMul", testMul),
-  ]
 }
 
 final class TaskSecondSuite: XCTestCase {
@@ -34,10 +28,4 @@ final class TaskSecondSuite: XCTestCase {
   func testMul_2() {
     XCTAssertEqual(mul(12, 13), 156)
   }
-
-  static var allTests = [
-    ("testAdd_2", testAdd_2),
-    ("testSub_2", testSub_2),
-    ("testMul_2", testMul_2),
-  ]
 }

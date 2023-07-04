@@ -18,11 +18,4 @@ final class MultipleWithExceptionTests: XCTestCase {
   func testThrow() {
     XCTAssertEqual(try throwErr(2, 0), 6)
   }
-
-  static var allTests = [
-    ("testAdd", testAdd),
-    ("testSub", testSub),
-    ("testMul", testMul),
-    ("testThrow", testThrow),
-  ]
 }
